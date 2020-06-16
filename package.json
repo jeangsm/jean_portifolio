@@ -1,0 +1,22 @@
+{
+  "name": "jean_blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "./node_modules/.bin/next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "bootswatch": "^4.5.0",
+    "date-fns": "^2.14.0",
+    "gray-matter": "^4.0.2",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "remark": "^12.0.0",
+    "remark-html": "^11.0.2"
+  }
+}

@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts'
 import Date from '../../components/date'
 import Head from 'next/head'
 import utilStyles from '../../styles/utils.module.css'
+import Container from 'react-bootstrap/Container'
 
 export default function Post( {postData}) {
   return (
@@ -10,13 +11,20 @@ export default function Post( {postData}) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </article>
+      <header className={utilStyles.postheader} style={{backgroundImage: 'url(/images/jobs_cover/'+postData.id+'_cover.jpg)'}}>
+        <Container className="text-center">
+          <h1 className={utilStyles.headingPost + " text-light"}>{postData.title}</h1>
+          <br/>
+          <div className="text-light">
+            <Date dateString={postData.date} />
+          </div>
+        </Container>
+      </header>
+      <Container>
+        <article className="mt-5">
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </article>
+      </Container>
     </Layout>
   )
 }

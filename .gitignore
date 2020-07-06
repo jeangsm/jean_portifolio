@@ -28,3 +28,17 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# imagens
+/public/images/jobs_cover/habito-saudavel-cavaletes-e-fachada.jpg
+/public/images/jobs_cover/habito-saudavel-posts.jpg
+/public/images/jobs_cover/haja-luz-folder.jpg
+/public/images/jobs_cover/image.jpg
+/public/images/jobs_cover/template_fandom.psd
+/public/images/jobs_cover/haja-luz-video-animado.psd
+
+/posts_to_make
+
+/.vscode
+
+next.config.js.backup

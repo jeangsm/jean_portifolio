@@ -1,16 +1,37 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import styles from './layout.module.css'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Container from 'react-bootstrap/Container'
+import { useState, useEffect } from 'react'
+
+/*
+window.onscroll = function() {
+      if(window.pageYOffset === 0) {
+        alert('I AM AT THE TOP');
+      }
+    };
+*/
 
 const name = 'Jean Medeiros'
 export const siteTitle = 'Jean Medeiros | Portfólio'
 
 export default function Layout({ children, home }) {
+
+  const [top, setTop] = useState(true)
+
+  const handleScroll = () => {
+    if(window.pageYOffset === 0)
+      setTop(true)
+    else
+      setTop(false)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
   return (
     <>
       <Head>
@@ -30,8 +51,8 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <Navbar bg="primary" variant="dark" expand="lg" fixed="top">
-        <Navbar.Brand href="/">Jean Medeiros</Navbar.Brand>
+      <Navbar className={styles.bg_primary} bg={top != true ? 'primary' : ''} variant="dark" expand="lg" fixed="top">
+        <Link href="/"><Navbar.Brand><span className={styles.brandName}>Jean Medeiros</span></Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -67,9 +88,7 @@ export default function Layout({ children, home }) {
         </div>
       </nav>
       */}
-      <Container>
         <main>{children}</main>
-        </Container>
     </>
   )
 }
